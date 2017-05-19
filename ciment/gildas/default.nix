@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
   installPhase=''
     mkdir -p $out/bin
     cp -a ../gildas-exe-${version}/* $out
-    mv $out/$GAG_EXEC_SYSTEM-openmp $out/libexec
+    mv $out/$GAG_EXEC_SYSTEM $out/libexec
     cp admin/wrapper.sh $out/bin/gildas-wrapper.sh
     chmod 755 $out/bin/gildas-wrapper.sh
     for i in $out/libexec/bin/* ; do
