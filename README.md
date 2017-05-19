@@ -6,18 +6,22 @@ A channel to add specific custom packages without modifying the upstream nixpkgs
 Set-up
 ------
 
-* Clone this branch
+* Clone this repository
 
     ```git clone https://github.com/Gricad/nix-ciment-channel.git```
 
-* Clone the nixpkgs repository in a submodule
+* Clone the nixpkgs repository at the release we are currently using
 
     ```
-    cd nix-ciment-channel
-    git submodule add https://github.com/Gricad/nixpkgs.git
+    git clone https://github.com/Gricad/nixpkgs.git
     cd nixpkgs
     git checkout release-17.03
     cd ..
+    ```
+* Link the nixpkgs directory
+    ```
+    cd nix-ciment-channel
+    ln -s ../nixpkgs
     ```
 
 * You can test a package
@@ -32,7 +36,7 @@ Set-up
 
     * Create the channel tarball
         ```
-        tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs
+        tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs --dereference
 	```
 
 Update
