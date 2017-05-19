@@ -24,5 +24,8 @@ let
             irods
             irods-icommands;
 
+    # Gildas
+    gildas = callPackage ./ciment/gildas { };
+
   };
 in pkgs // self
