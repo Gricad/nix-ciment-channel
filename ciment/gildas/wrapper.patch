@@ -6,7 +6,7 @@ diff --new-file -r -u gildas-src-feb17d.orig/admin/wrapper.sh gildas-src-feb17d/
 +
 +export GAG_ROOT_DIR="%%OUT%%"
 +export GAG_PATH="${GAG_ROOT_DIR}/etc"
-+export GAG_EXEC_SYSTEM="x86_64-linux-gfortran-openmp"
++export GAG_EXEC_SYSTEM="libexec"
 +if [ -z "\$PYTHONPATH" ]; then
 +  PYTHONPATH="${GAG_ROOT_DIR}/${GAG_EXEC_SYSTEM}/python"
 +else

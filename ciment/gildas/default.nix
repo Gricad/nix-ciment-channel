@@ -26,9 +26,10 @@ stdenv.mkDerivation rec {
   installPhase=''
     mkdir -p $out/bin
     cp -a ../gildas-exe-${version}/* $out
+    mv $out/$GAG_COMP_SYSTEM-openmp $out/libexec
     cp admin/wrapper.sh $out/bin/gildas-wrapper.sh
     chmod 755 $out/bin/gildas-wrapper.sh
-    for i in $out/x86_64-linux-gfortran-openmp/bin/* ; do
+    for i in $out/libexec/bin/* ; do
       ln -s $out/bin/gildas-wrapper.sh $out/bin/`basename $i`
     done
   '';
@@ -48,7 +49,7 @@ stdenv.mkDerivation rec {
     homepage = http://www.iram.fr/IRAMFR/GILDAS/gildas.html;
     license = stdenv.lib.licenses.free;
     maintainers = [ stdenv.lib.maintainers.bzizou ];
-    platforms = stdenv.lib.platforms.x86_64-linux;
+    platforms = stdenv.lib.platforms.all;
   };
 
 }
