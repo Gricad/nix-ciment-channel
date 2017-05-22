@@ -15,7 +15,7 @@
 | libdap                 | Merged   | Bruno Bzeznik           | |
 | netcdf-fortran         | Merged   | Bruno Bzeznik           | |
 | libmatheval            | Merged   | Bruno Bzeznik           | |
-| siconos                | WIP      | Franck Pérignon         | | http://siconos.gforge.inria.fr/
+| siconos                | WIP      | Franck Pérignon         | http://siconos.gforge.inria.fr/
 | hysop                  | WIP      | Franck Pérignon         | |
-| linbox                 | WIP      | Franck Pérignon         | | http://www.linalg.org
-| OCE + pythonocc        | WIP      | Franck Pérignon         | | https://github.com/tpaviot/oce, http://www.pythonocc.org
+| linbox                 | WIP      | Franck Pérignon         |  http://www.linalg.org
+| OCE + pythonocc        | WIP      | Franck Pérignon         |  https://github.com/tpaviot/oce, http://www.pythonocc.org
