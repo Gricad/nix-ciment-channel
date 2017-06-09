@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, python, bzip2, zlib, autoconf, automake, cmake, gnumake, help2man , texinfo, libtool , cppzmq , libarchive, avro-cpp, boost, jansson, zeromq, openssl , pam, libiodbc, kerberos, gcc, libcxx, which }:
+{ stdenv, fetchurl, python, bzip2, zlib, autoconf, automake, cmake, gnumake, help2man , texinfo, libtool , cppzmq , libarchive, avro-cpp, boost, jansson, zeromq, openssl , pam, libiodbc, kerberos, gcc, libcxx, which, unixODBC }:
 
 with stdenv;
 
@@ -7,19 +7,19 @@ let
     inherit stdenv bzip2 zlib autoconf automake cmake gnumake
             help2man texinfo libtool cppzmq libarchive jansson
             zeromq openssl pam libiodbc kerberos gcc libcxx
-            boost avro-cpp which;
+            boost avro-cpp which unixODBC;
   };
 in rec {
 
   # irods: libs and server package
   irods = stdenv.mkDerivation (common // rec {
-    version = "4.2.0";
+    version = "4.2.1";
     prefix = "irods";
     name = "${prefix}-${version}";
 
     src = fetchurl {
       url = "https://github.com/irods/irods/releases/download/${version}/irods-${version}.tar.gz";
-      sha256 = "b5c0d7209219629da139058ce462a237ecc22ad4dae613413a428961e4ff9d3e";
+      sha256 = "782972289674885ed06225c70c089b487c32eb31a96338add244655ec32bd21f";
     };
 
     # Patches:
@@ -27,14 +27,18 @@ in rec {
     #                         but we don't use /usr with nix, so remove only 2 items.
     patches = [ ./irods_root_path.patch ];
 
+    propagateBuildInputs = [ unixODBC ];
+
     preConfigure = common.preConfigure + ''
       patchShebangs ./test
+      substituteInPlace CMakeLists.txt --replace "BOOST_SYSTEM_NO_DEPRECATED" "BOOST_SYSTEM_NO_DEPRECATED SYSLOG"
       substituteInPlace plugins/database/CMakeLists.txt --replace "COMMAND cpp" "COMMAND ${gcc.cc}/bin/cpp"
       substituteInPlace cmake/server.cmake --replace "DESTINATION usr/sbin" "DESTINATION sbin"
       substituteInPlace cmake/server.cmake --replace "IRODS_DOC_DIR usr/share" "IRODS_DOC_DIR share"
       substituteInPlace cmake/runtime_library.cmake --replace "DESTINATION usr/lib" "DESTINATION lib"
       substituteInPlace cmake/development_library.cmake --replace "DESTINATION usr/lib" "DESTINATION lib"
       substituteInPlace cmake/development_library.cmake --replace "DESTINATION usr/include" "DESTINATION include"
+      substituteInPlace scripts/irods/database_connect.py --replace "odbcinst" "${unixODBC}/bin/odbcinst" 
       export cmakeFlags="$cmakeFlags
         -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,$out/lib
         -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,$out/lib

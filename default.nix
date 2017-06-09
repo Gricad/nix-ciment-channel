@@ -20,6 +20,8 @@ let
               stdenv = pkgs.llvmPackages_38.libcxxStdenv;
               libcxx = pkgs.llvmPackages_38.libcxx;
               boost = pkgs.boost160.override { inherit stdenv; };
+              avro-cpp = pkgs.avro-cpp.override { inherit boost;    
+                                                  inherit stdenv; };
             })
             irods
             irods-icommands;
