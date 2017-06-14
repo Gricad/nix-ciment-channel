@@ -24,11 +24,16 @@ Set-up
     ln -s ../nixpkgs
     ```
 
-* You can test a package
+* You can test to build a package
 
-    ``` nix-build . -A ciment.hello```
+    ```
+    # Build
+    nix-build . -A ciment.hello
+    # Install
+    nix-env -i ./result
+    ```
 
-* Create the channel
+* Create the channel (OPTIONAL, if you are an admin)
     * Push your package into the binary-cache
         ```
         nix-push --dest /scratch/nix.cache $(nix-build -A ciment.hello)
@@ -42,7 +47,7 @@ Set-up
 Update
 ------
 Custom packages can be push into the ```ciment``` directory.
-Upstream nixpkgs repository can be upgraded by a simple ```git pull``` from the ```nixpkgs``` directory of the submodule. Then, re-create the ```nixexprs.tar.bz2``` file, after pushing new packages into the cache if needed.
+Upstream nixpkgs repository can be upgraded by a simple ```git pull``` from the ```nixpkgs``` directory. Then, if you're an admin , you can re-create the ```nixexprs.tar.bz2``` file, after pushing new packages into the cache if needed.
 
 Usage
 -----
