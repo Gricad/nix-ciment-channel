@@ -30,5 +30,8 @@ let
     # Gildas
     gildas = callPackage ./ciment/gildas { };
 
+    # Openmpi
+    openmpi = callPackage ./ciment/openmpi { };
+
   };
 in pkgs // self
