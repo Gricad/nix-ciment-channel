@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, glibc, gcc,
+{ stdenv, fetchurl, glibc, gcc, gnumake,
   preinstDir ? "/scratch/intel"
 }:
 
@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
         ******************************************************************************************
       '';
 
-  buildInputs = [ glibc gcc ];
+  buildInputs = [ glibc gcc gnumake ];
 
   phases = [ "installPhase" "fixupPhase" "installCheckPhase" "distPhase" ];
 
@@ -29,6 +29,19 @@ stdenv.mkDerivation rec {
      rm -f $out/man
      mkdir -p $out/share
      ln -s ../compilers_and_libraries/linux/man/common $out/share/man
+     cd $out/mkl/interfaces
+     export PATH=$out/bin:$PATH
+     source $out/bin/iccvars.sh || true
+     source $out/bin/ifortvars.sh || true
+     source $out/impi/2017.3.196/intel64/bin/mpivars.sh || true
+     echo "Building MKL interfaces..."
+     for i in *
+     do
+       echo "Building $i..."
+       cd $i
+       make libintel64 INSTALL_DIR=.
+       cd ..
+     done
   '';
 
   postFixup = ''
