@@ -19,3 +19,6 @@
 | hysop                  | WIP      | Franck Pérignon         | |
 | linbox                 | WIP      | Franck Pérignon         |  http://www.linalg.org
 | OCE + pythonocc        | WIP      | Franck Pérignon         |  https://github.com/tpaviot/oce, http://www.pythonocc.org
+| Openfoam               | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/openfoam |
+| Intel 2017             | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/intel |
+
