@@ -14,7 +14,7 @@ let
 
     # Intel compiler
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
-    intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
+    intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { preinstDir="/scratch/intel/2017"; };
 
     # iRods
     inherit (callPackages ./ciment/irods rec {

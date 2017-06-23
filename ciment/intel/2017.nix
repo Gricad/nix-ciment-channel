@@ -1,9 +1,23 @@
-{ stdenv, fetchurl, glibc, gcc }:
+{ stdenv, fetchurl, glibc, gcc,
+  preinstDir ? "/scratch/intel"
+}:
 
 stdenv.mkDerivation rec {
   version = "2017";
   name = "intel-compilers-${version}";
-  sourceRoot = "/scratch/intel/${version}";
+  sourceRoot = 
+    if builtins.pathExists preinstDir then
+      preinstDir
+    else
+      abort ''
+
+        ******************************************************************************************
+        Specified preinstDir (${preinstDir}) directory not found.
+        To build this package, you have to first get and install locally the Intel Parallel Studio
+        distribution with the official installation script provided by Intel.
+        Then, set-up preinstDir to point to the directory of the local installation.
+        ******************************************************************************************
+      '';
 
   buildInputs = [ glibc gcc ];
 
