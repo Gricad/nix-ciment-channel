@@ -30,6 +30,8 @@
 | Biogeme/PythonBiogeme  | TODO     |                         | http://biogeme.epfl.ch/install.html |
 | R-open                 | TODO     |                         | https://mran.revolutionanalytics.com/rro/ |
 | Hypre                  | WIP      | P. Beys, F. Roch        | https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods|
+| Siesta                 | WIP      | P. Beys, F. Roch        | http://departments.icmab.es/leem/siesta/ |
+| PETSC                  | TODO     |                         | https://www.mcs.anl.gov/petsc/ |several compil options, cf Froggy|
 
 > Legend:
 >
