@@ -24,10 +24,13 @@
 | OCE + pythonocc        | WIP      | Franck Pérignon         |  https://github.com/tpaviot/oce, http://www.pythonocc.org
 | Openfoam               | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/openfoam |
 | Intel 2017             | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/intel |
+| NCL                    | TODO     |                         |  http://www.ncl.ucar.edu/current_release.shtml (opendap) |
+
 
 > Legend:
 >
-> * *WIP*: Work in progress, check the link to the devel branch if any
-> * *PR*: Pull request opened at nixpkgs
-> * *Merged*: Pushed and merged into the official nixpkgs repository
-> * *Ciment*: Pushed into the local ciment channel (nix-ciment-channel repository)
+> * **TODO**: needed package (dep or user application), but no work done for the moment
+> * **WIP**: Work in progress, check the link to the devel branch if any
+> * **PR**: Pull request opened at nixpkgs
+> * **Merged**: Pushed and merged into the official nixpkgs repository
+> * **Ciment**: Pushed into the local ciment channel (nix-ciment-channel repository)
