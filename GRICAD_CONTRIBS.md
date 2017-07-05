@@ -29,6 +29,7 @@
 | Grads                  | TODO     |                         | http://cola.gmu.edu/grads/ |
 | Biogeme/PythonBiogeme  | TODO     |                         | http://biogeme.epfl.ch/install.html |
 | R-open                 | TODO     |                         | https://mran.revolutionanalytics.com/rro/ |
+| Hypre                  | WIP      | P. Beys, F. Roch        | https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods|
 
 > Legend:
 >
