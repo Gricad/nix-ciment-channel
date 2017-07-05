@@ -23,6 +23,7 @@
 | linbox                 | WIP      | Franck Pérignon         |  http://www.linalg.org
 | OCE + pythonocc        | WIP      | Franck Pérignon         |  https://github.com/tpaviot/oce, http://www.pythonocc.org
 | Openfoam               | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/openfoam |
+| SedFoam                | TODO     |                         | https://github.com/SedFoam/sedfoam |
 | Intel 2017             | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/intel |
 | NCL                    | TODO     |                         |  http://www.ncl.ucar.edu/current_release.shtml (opendap) |
 | Obspy                  | TODO     |                         | https://github.com/obspy/obspy/wiki |
@@ -33,6 +34,8 @@
 | Siesta                 | WIP      | P. Beys, F. Roch        | http://departments.icmab.es/leem/siesta/ |
 | PETSC                  | TODO     |                         | https://www.mcs.anl.gov/petsc/ (several compil options, cf Froggy|
 | IOR                    | Merged   | Bruno Bzeznik           | https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/system/ior |
+| pluto                  | TODO     |                         | http://plutocode.ph.unito.it/Download.html |
+| OTB                    | TODO     |                         | https://www.orfeo-toolbox.org/download/ |
 
 > Legend:
 >
