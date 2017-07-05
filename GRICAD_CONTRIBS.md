@@ -5,6 +5,9 @@
 | irods                  | Merged   | Bruno Bzeznik           | To iterate: https://github.com/NixOS/nixpkgs/pull/19898                                                  |
 | intel 2016             | Ciment   | Bruno Bzeznik           | https://ciment.ujf-grenoble.fr/wiki/index.php/NIX_packaging_WIP#Compilateurs_et_libs_Intel_2016          |
 | elmer                  | WIP      | Laure Tavard            |                                                                                                          |
+| cdo                    | PR       | Laure Tavard            |                                                                                                          |
+| gmt                    | WIP      | Laure Tavard            |                                                                                                          |
+| gmtsar                 | WIP      | Laure Tavard            |                                                                                                          |
 | paraview               | Upgraded | Yves Rogez              | https://ciment.ujf-grenoble.fr/wiki/index.php/NIX_packaging_WIP#Paraview                                 |
 | gildas                 | PR      | Bruno Bzeznik           |  https://github.com/NixOS/nixpkgs/pull/27138               |
 | scotch                 | Merged   | Bruno Bzeznik           | |
