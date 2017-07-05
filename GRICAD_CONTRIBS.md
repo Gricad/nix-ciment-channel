@@ -13,7 +13,7 @@
 | scotch                 | Merged   | Bruno Bzeznik           | |
 | kanif                  | Merged   | Bruno Bzeznik           | |
 | taktuk                 | Merged   | Bruno Bzeznik           | |
-| libibverbs             | Merged   | Bruno Bzeznik           | |
+| libibverbs mlx4 support| Merged   | Bruno Bzeznik           | |
 | nco                    | Merged   | Bruno Bzeznik           | |
 | libdap                 | Merged   | Bruno Bzeznik           | |
 | netcdf-fortran         | Merged   | Bruno Bzeznik           | |
