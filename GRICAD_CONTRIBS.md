@@ -22,3 +22,9 @@
 | Openfoam               | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/openfoam |
 | Intel 2017             | WIP      | Bruno Bzeznik           |  https://github.com/Gricad/nix-ciment-channel/tree/intel |
 
+> Legend:
+>
+> * *WIP*: Work in progress, check the link to the devel branch if any
+> * *PR*: Pull request opened at nixpkgs
+> * *Merged*: Pushed and merged into the official nixpkgs repository
+> * *Ciment*: Pushed into the local ciment channel (nix-ciment-channel repository)
