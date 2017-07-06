@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   version = "v1612+";
-  name = "openfoam-${version}";
+  name = "openfoamplus-${version}";
 
   src = fetchurl {
     url = "https://sourceforge.net/projects/openfoamplus/files/${version}/OpenFOAM-${version}.tgz";
@@ -31,7 +31,9 @@ stdenv.mkDerivation rec {
   '';
 
   buildPhase=''
-    ./wmake/wmake src/renumber/SloanRenumber
+    cd src/renumber/SloanRenumber
+    ../../../wmake/wmake src/renumber/SloanRenumber
+    cd ../../../
     ./Allwmake
   '';
 

@@ -33,8 +33,8 @@ let
     # Openmpi
     openmpi = callPackage ./ciment/openmpi { };
 
-    # Openfoam
-    openfoam = callPackage ./ciment/openfoam { };
+    # Openfoam Plus
+    openfoamplus = callPackage ./ciment/openfoamplus { };
 
   };
 in pkgs // self
