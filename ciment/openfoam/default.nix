@@ -30,7 +30,10 @@ stdenv.mkDerivation rec {
     export WM_NCOMPPROCS=$NIX_BUILD_CORES
   '';
 
-  buildPhase="./Allwmake";
+  buildPhase=''
+    ./wmake/wmake src/renumber/SloanRenumber
+    ./Allwmake
+  '';
 
   installPhase=''
     foamInstallationTest
