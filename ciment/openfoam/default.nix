@@ -20,6 +20,7 @@ stdenv.mkDerivation rec {
     substituteInPlace etc/bashrc --replace 'FOAM_INST_DIR=$HOME/$WM_PROJECT' FOAM_INST_DIR=$out
     substituteInPlace etc/bashrc --replace '$HOME' $out 
     substituteInPlace wmake/wmakeCheckPwd --replace /bin/pwd pwd
+    substituteInPlace wmake/rules/linux64Gcc/general --replace 'PROJECT_LIBS = ' 'PROJECT_LIBS = -L$(FOAM_LIBBIN)/dummy '
     mkdir $out
     cp -a ../$sourceRoot $out/
     cd $out/$sourceRoot
@@ -39,7 +40,7 @@ stdenv.mkDerivation rec {
     homepage = http://www.openfoam.com/;
     license = stdenv.lib.licenses.gpl3;
     maintainers = [ stdenv.lib.maintainers.bzizou ];
-    platforms = stdenv.lib.platforms.all;
+    platforms = stdenv.lib.platforms.x86_64-linux;
   };
 
 }
