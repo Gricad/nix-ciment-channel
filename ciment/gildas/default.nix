@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   srcVersion = "jul17a";
-  version = "20170701_d";
+  version = "20170701_a";
   name = "gildas-${version}";
 
   src = fetchurl {
