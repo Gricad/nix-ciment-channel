@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, boost,  flex, bison, cmake, openmpi, ncurses, scotch, zlib, gnuplot, readline, xorg, freeglut, qt4, webkit, cgal }:
+{ stdenv, fetchurl, boost,  flex, bison, cmake, openmpi, ncurses, scotch, zlib, gnuplot, readline, xorg, freeglut, qt4, webkit, cgal, fftw }:
 
 stdenv.mkDerivation rec {
   version = "v1612+";
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  buildInputs = [ boost flex bison cmake openmpi ncurses scotch zlib xorg.libXt qt4 webkit cgal ];
+  buildInputs = [ boost flex bison cmake openmpi ncurses scotch zlib xorg.libXt qt4 webkit cgal fftw ];
   propagateBuildInputs = [ gnuplot readline ];
 
   configurePhase=''
@@ -28,12 +28,10 @@ stdenv.mkDerivation rec {
     export LOGNAME=nix
     foamSystemCheck
     export WM_NCOMPPROCS=$NIX_BUILD_CORES
+    ./bin/tools/foamConfigurePaths -boost-path ${boost} -fftw-path ${fftw} -scotch-path ${scotch}
   '';
 
   buildPhase=''
-    cd src/renumber/SloanRenumber
-    ../../../wmake/wmake src/renumber/SloanRenumber
-    cd ../../../
     ./Allwmake
   '';
 
