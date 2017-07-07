@@ -36,7 +36,9 @@ stdenv.mkDerivation rec {
   '';
 
   installPhase=''
+    mkdir $WM_THIRD_PARTY_DIR
     foamInstallationTest
+    rmdir $WM_THIRD_PARTY_DIR # no thirdparty needed, all deps provided by nix!
   '';
 
   meta = {
