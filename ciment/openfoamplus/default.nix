@@ -24,11 +24,11 @@ stdenv.mkDerivation rec {
     mkdir $out
     cp -a ../$sourceRoot $out/
     cd $out/$sourceRoot
+    ./bin/tools/foamConfigurePaths -boost-path ${boost.dev} -fftw-path ${fftw.dev} -scotch-path ${scotch}
     source etc/bashrc
     export LOGNAME=nix
     foamSystemCheck
     export WM_NCOMPPROCS=$NIX_BUILD_CORES
-    ./bin/tools/foamConfigurePaths -boost-path ${boost} -fftw-path ${fftw} -scotch-path ${scotch}
   '';
 
   buildPhase=''
