@@ -37,6 +37,7 @@
 | pluto                  | TODO     |                         | http://plutocode.ph.unito.it/Download.html |
 | OTB                    | TODO     |                         | https://www.orfeo-toolbox.org/download/ |
 | OpenMPI 2              | TODO     |                         | |
+| Surpi                  | TODO     |                         | http://chiulab.ucsf.edu/surpi/ |
 
 > Legend:
 >
