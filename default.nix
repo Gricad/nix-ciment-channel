@@ -32,6 +32,7 @@ let
 
     # Openmpi
     openmpi = callPackage ./ciment/openmpi { };
+    openmpi2 = callPackage ./ciment/openmpi/2.nix { };
 
   };
 in pkgs // self
