@@ -36,7 +36,7 @@
 | IOR                    | Merged   | Bruno Bzeznik           | https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/system/ior |
 | pluto                  | TODO     |                         | http://plutocode.ph.unito.it/Download.html |
 | OTB                    | TODO     |                         | https://www.orfeo-toolbox.org/download/ |
-| OpenMPI 2              | WIP      | Bruno Bzeznik           | |
+| OpenMPI 2              | Ciment   | Bruno Bzeznik           | To be tested: nix-env -i -A ciment-channel.ciment.openmpi2 |
 | Surpi                  | TODO     |                         | http://chiulab.ucsf.edu/surpi/ |
 
 > Legend:
