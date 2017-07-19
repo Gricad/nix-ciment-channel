@@ -1,0 +1,12 @@
+diff -u -r singularity-2.3.1.orig/src/lib/image/mount/mount.c singularity-2.3.1/src/lib/image/mount/mount.c
+--- singularity-2.3.1.orig/src/lib/image/mount/mount.c	2017-06-22 18:13:29.000000000 +0200
++++ singularity-2.3.1/src/lib/image/mount/mount.c	2017-07-19 16:22:52.970628435 +0200
+@@ -53,7 +53,7 @@
+         ABORT(255);
+     }
+ 
+-    if ( chk_mode(mount_point, 0040755, 0007000) != 0 ) {
++    if ( chk_mode(mount_point, 0040755, 0007000) != 0 && chk_mode(mount_point, 0040555, 0007000) != 0) {
+         int ret;
+         singularity_message(DEBUG, "fixing bad permissions on %s\n", mount_point);
+ 

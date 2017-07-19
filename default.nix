@@ -34,5 +34,8 @@ let
     openmpi = callPackage ./ciment/openmpi { };
     openmpi2 = callPackage ./ciment/openmpi/2.nix { };
 
+    # Singularity
+    singularity = callPackage ./ciment/singularity { };  
+
   };
 in pkgs // self
