@@ -16,17 +16,6 @@ let
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
 
-    # iRods
-    inherit (callPackages ./ciment/irods rec {
-              stdenv = pkgs.llvmPackages_38.libcxxStdenv;
-              libcxx = pkgs.llvmPackages_38.libcxx;
-              boost = pkgs.boost160.override { inherit stdenv; };
-              avro-cpp = pkgs.avro-cpp.override { inherit boost;    
-                                                  inherit stdenv; };
-            })
-            irods
-            irods-icommands;
-
     # Gildas
     gildas = callPackage ./ciment/gildas { };
 
