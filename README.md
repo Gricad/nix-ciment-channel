@@ -15,7 +15,7 @@ Set-up
     ```
     git clone https://github.com/Gricad/nixpkgs.git
     cd nixpkgs
-    git checkout release-17.03
+    git checkout release-17.09
     cd ..
     ```
 * Link the nixpkgs directory
