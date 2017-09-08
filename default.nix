@@ -26,5 +26,8 @@ let
     # Singularity
     singularity = callPackage ./ciment/singularity { };  
 
+    # Petsc
+    petsc = callPackage ./ciment/petsc { };
+
   };
 in pkgs // self
