@@ -12,6 +12,7 @@
 , superlu
 , hdf5
 , netcdf
+, scalarType ? "complex" # May be "real" or "complex"
 }:
 
 stdenv.mkDerivation rec {
@@ -49,7 +50,7 @@ stdenv.mkDerivation rec {
   configureFlags = let
     sharedLibraryExtension = if stdenv.isDarwin then ".dylib" else ".so";
   in [
-      "--with-scalar-type=complex"
+      "--with-scalar-type=${scalarType}"
       "--with-debugging=0"
       "--with-mpi=1"
       # PETSc is not threadsafe, disable pthread/openmp (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)

@@ -7,7 +7,7 @@ let
   callPackage_i686 = callPackageWith (pkgs.pkgsi686Linux // self.ciment);
   callPackages = callPackagesWith (pkgs // self.ciment);
 
-  self.ciment = {
+  self.ciment = rec {
 
     # Hello
     hello = callPackage ./ciment/hello { };
@@ -27,7 +27,9 @@ let
     singularity = callPackage ./ciment/singularity { };  
 
     # Petsc
-    petsc = callPackage ./ciment/petsc { };
+    petscComplex = callPackage ./ciment/petsc { scalarType = "complex"; };
+    petscReal = callPackage ./ciment/petsc { scalarType = "real"; };
+    petsc = petscComplex;
 
   };
 in pkgs // self
