@@ -58,7 +58,7 @@ Usage
 
 * Install a package
 
-    ```nix-env -i ciment-channel.ciment.hello```
+    ```nix-env -i -A ciment-channel.ciment.hello```
 
 * Every other official package may be installed as usual
 
