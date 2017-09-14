@@ -31,5 +31,8 @@ let
     petscReal = callPackage ./ciment/petsc { scalarType = "real"; };
     petsc = petscComplex;
 
-  };
+    # Arpack-ng
+    arpackNG = callPackage ./ciment/arpack-ng { };  
+
+};
 in pkgs // self
