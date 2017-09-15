@@ -39,6 +39,7 @@
 | OpenMPI 2              | Ciment   | Bruno Bzeznik           | To be tested: nix-env -i -A ciment-channel.ciment.openmpi2 |
 | Surpi                  | TODO     |                         | http://chiulab.ucsf.edu/surpi/ |
 | Singularity 2.2 -> 2.3 | WIP      | Bruno Bzeznik           | see singularity branch |
+| Mumps                  | TODO     |                         | Dependency for PETSC usage on Froggy (N. Schaeffer)|
 
 > Legend:
 >
