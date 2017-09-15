@@ -49,5 +49,7 @@ So, you get a package that builds and run, into your local copy of the ciment-ch
 * Push your branch into your forked project
 
     ```git push origin my-new-package```
-* Create a pull request: from the github interface, go into your fork. You should directly see a new button beside your last commit. Click and fill a little comment about your request.
+* Create a pull request: from the github interface, go into your fork of ```nix-ciment-channel```. You should directly see a new button beside your last commit. Click and fill a little comment about your request.
 * If we ask you to change something (check your mailbox), you'll have to ammend your commit (```git commit --amend```) and then force-push your branch (```git push origin my-new-package -f```). This will update your pull request that should stay into a single commit.
+* We will test your commit and then merge it into the master branch
+* Then, we will update our binary-cache with your new package, and update the channel on our clusters
