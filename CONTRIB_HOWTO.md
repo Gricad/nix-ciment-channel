@@ -11,20 +11,23 @@ Clone your fork and nixpkgs
 Into a directory of your choice:
 
 * Clone your fork:
+
     ```git clone git@github.com/<user>/nix-ciment-channel.git```
 * Clone nixpkgs of the Gricad fork:
+
     ```git clone git@github.com/Gricad/nixpkgs```
 * Go into the nixpkgs branch we are currently using:
 ```
   cd nixpkgs
   git checkout release-17.09
 ```
-* Go back into the nix-ciment-channel repository and Create a link to nixpkgs
+* Go back into the nix-ciment-channel repository and create a link to nixpkgs
 ```
   cd ../nix-ciment-channel
   ln -s ../nixpkgs
 ```
-* Create a new branch for your work (named for example "my-new-package")
+* Create a new branch for your work (named for example "my-new-package"):
+
     ```git checkout -b my-new-package```
 
 
