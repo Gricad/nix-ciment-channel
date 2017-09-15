@@ -47,6 +47,7 @@ So, you get a package that builds and run, into your local copy of the ciment-ch
    git commit -a
 ```
 * Push your branch into your forked project
+
     ```git push origin my-new-package```
 * Create a pull request: from the github interface, go into your fork. You should directly see a new button beside your last commit. Click and fill a little comment about your request.
 * If we ask you to change something (check your mailbox), you'll have to ammend your commit (```git commit --amend```) and then force-push your branch (```git push origin my-new-package -f```). This will update your pull request that should stay into a single commit.
