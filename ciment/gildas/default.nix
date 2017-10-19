@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
     sha256 = "060vha4af2xamk0fvriqr6rgq4zayy4k6l5y6kj3h5cv9b4yiqzq";
   };
 
-  enableParallelBuilding = false;
+  enableParallelBuilding = true;
 
   nativeBuildInputs = [ pkgconfig groff perl getopt gfortran python27 python27Packages.numpy ];
 
@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
     substituteInPlace admin/wrapper.sh --replace '%%OUT%%' $out
     source admin/gildas-env.sh -b gcc -c gfortran -o openmp
     export GAG_INC_FLAGS=""
+    echo "gag_doc:        $out/share/doc/" >> kernel/etc/gag.dico.lcl
   '';
 
   buildPhase="make install";
