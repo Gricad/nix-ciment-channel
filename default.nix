@@ -12,6 +12,9 @@ let
     # Hello
     hello = callPackage ./ciment/hello { };
 
+    # Casa
+    casa = callPackage ./ciment/casa/4.7.2.nix { };
+
     # Intel compiler
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
