@@ -40,7 +40,7 @@
 | Surpi                  | TODO     |                         | http://chiulab.ucsf.edu/surpi/ |
 | Singularity 2.2 -> 2.3 | WIP      | Bruno Bzeznik           | see singularity branch |
 | Mumps                  | TODO     |                         | Dependency for PETSC usage on Froggy (N. Schaeffer)|
-| Casa                   | WIP      | Bruno Bzeznik           | Binaries packaging https://casa.nrao.edu/casa_obtaining.shtml |
+| Casa                   | Ciment   | Bruno Bzeznik           | Binaries packaging https://casa.nrao.edu/casa_obtaining.shtml |
 
 > Legend:
 >
