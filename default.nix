@@ -15,6 +15,9 @@ let
     # Casa
     casa = callPackage ./ciment/casa/4.7.2.nix { };
 
+    # Charliecloud
+    charliecloud = callPackage ./ciment/charliecloud { };
+
     # Intel compiler
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
