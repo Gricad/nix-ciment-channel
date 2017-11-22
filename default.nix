@@ -40,5 +40,10 @@ let
     # Arpack-ng
     arpackNG = callPackage ./ciment/arpack-ng { };  
 
+    # GMT
+    gshhg-gmt = callPackage ./ciment/gmt/gshhg-gmt.nix { };
+    dcw-gmt   = callPackage ./ciment/gmt/dcw-gmt.nix { };
+    gmt = callPackage ./ciment/gmt { };
+
 };
 in pkgs // self
