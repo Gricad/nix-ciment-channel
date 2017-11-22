@@ -6,7 +6,7 @@
 | intel 2016             | Ciment   | Bruno Bzeznik           | https://ciment.ujf-grenoble.fr/wiki/index.php/NIX_packaging_WIP#Compilateurs_et_libs_Intel_2016          |
 | elmer                  | WIP      | Laure Tavard            |                                                                                                          |
 | cdo                    | Merged   | Laure Tavard            | https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/libraries/cdo                                                                                                         |
-| gmt                    | WIP      | Laure Tavard            |                                                                                                          |
+| gmt                    | Ciment   | Laure Tavard            | 	To be tested: nix-env -i -A ciment-channel.ciment.gmt   |
 | gmtsar                 | WIP      | Laure Tavard            |                                                                                                          |
 | paraview               | Upgraded | Yves Rogez              | https://ciment.ujf-grenoble.fr/wiki/index.php/NIX_packaging_WIP#Paraview                                 |
 | gildas                 | PR      | Bruno Bzeznik           |  https://github.com/NixOS/nixpkgs/pull/27138               |
