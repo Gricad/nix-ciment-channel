@@ -41,7 +41,7 @@
 | Singularity 2.2 -> 2.3 | WIP      | Bruno Bzeznik           | see singularity branch |
 | Mumps                  | TODO     |                         | Dependency for PETSC usage on Froggy (N. Schaeffer)|
 | Casa                   | Ciment   | Bruno Bzeznik           | Binaries packaging https://casa.nrao.edu/casa_obtaining.shtml |
-
+| Seismic Unix           | WIP      | Laure Tavard            | http://www.cwp.mines.edu/cwpcodes/ | 
 > Legend:
 >
 > * **TODO**: needed package (dep or user application), but no work done for the moment
