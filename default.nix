@@ -45,5 +45,8 @@ let
     dcw-gmt   = callPackage ./ciment/gmt/dcw-gmt.nix { };
     gmt = callPackage ./ciment/gmt { };
 
+    # GMTSAR
+    gmtsar = callPackage ./ciment/gmtsar { };
+
 };
 in pkgs // self
