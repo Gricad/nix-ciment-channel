@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff }:
+{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff , which }:
 
 stdenv.mkDerivation rec {
   srcVersion = "dec17a";
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran python27 python27Packages.numpy ];
+  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran python27 python27Packages.numpy which ];
 
   buildInputs = [ gtk2 lesstif cfitsio ];
 
