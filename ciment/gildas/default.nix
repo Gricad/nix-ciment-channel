@@ -21,7 +21,6 @@ stdenv.mkDerivation rec {
   configurePhase=''
     substituteInPlace admin/wrapper.sh --replace '%%OUT%%' $out
     source admin/gildas-env.sh -b gcc -c gfortran -o openmp
-    export GAG_INC_FLAGS=""
     echo "gag_doc:        $out/share/doc/" >> kernel/etc/gag.dico.lcl
   '';
 
