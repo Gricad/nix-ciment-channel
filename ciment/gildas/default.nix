@@ -1,13 +1,13 @@
 { stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff }:
 
 stdenv.mkDerivation rec {
-  srcVersion = "oct17a";
-  version = "20171001_a";
+  srcVersion = "dec17a";
+  version = "20171201_a";
   name = "gildas-${version}";
 
   src = fetchurl {
     url = "http://www.iram.fr/~gildas/dist/gildas-src-${srcVersion}.tar.gz";
-    sha256 = "1lm383p99hbyw0alynacgd71fpfsrqkh481pxa4bglbqxgpiwpg8";
+    sha256 = "309fd9a383a7b4b85aacb09f21c0150eb3a6af95f6c4bcc95c5cc4cdef3d1ceb";
   };
 
   enableParallelBuilding = true;
@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ gtk2 lesstif cfitsio ];
 
-  patches = [ ./format-security.patch ./wrapper.patch ];
+  patches = [ ./wrapper.patch ./return-error-code.patch ];
 
   configurePhase=''
     substituteInPlace admin/wrapper.sh --replace '%%OUT%%' $out
