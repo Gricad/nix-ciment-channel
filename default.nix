@@ -14,6 +14,7 @@ let
 
     # Casa
     casa = callPackage ./ciment/casa/4.7.2.nix { };
+    casa42 = callPackage ./ciment/casa/4.2.nix { };
 
     # Charliecloud
     charliecloud = callPackage ./ciment/charliecloud { };
