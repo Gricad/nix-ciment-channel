@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
     echo "Fixing rights..."
     chmod u+w -R $out
     echo "Patching rpath and interpreter..."
-    find $out -type f -exec $SHELL -c "patchelf --set-rpath ${glibc}/lib:$out/lib:${gcc5.cc}/lib:${gcc5.cc.lib}/lib:${zlib}/lib:${glib}/lib:${freetype}/lib:${xorg.libSM}/lib:${xorg.libICE}/lib:${xorg.libX11}/lib:${xorg.libXext}/lib:${xorg.libXi}/lib:${xorg.libXrender}/lib:${xorg.libXrandr}/lib:${xorg.libXfixes}/lib:${xorg.libXcursor}/lib:${xorg.libXinerama}/lib:${xorg.libxcb}/lib:${xorg.libXft}/lib:${fontconfig.lib}/lib:${libselinux}/lib:${libxml2.out}/lib:${sqlite.out}/lib:${expat}/lib:$out/etc/carta/lib:${bzip2.out}/lib:${libkrb5}/lib:${gdbm}/lib:${e2fsprogs.out}/lib '{}' 2>/dev/null" \;
+    find $out -type f ! -iname "libgomp.*" -exec $SHELL -c "patchelf --set-rpath ${glibc}/lib:$out/lib:${gcc5.cc}/lib:${gcc5.cc.lib}/lib:${zlib}/lib:${glib}/lib:${freetype}/lib:${xorg.libSM}/lib:${xorg.libICE}/lib:${xorg.libX11}/lib:${xorg.libXext}/lib:${xorg.libXi}/lib:${xorg.libXrender}/lib:${xorg.libXrandr}/lib:${xorg.libXfixes}/lib:${xorg.libXcursor}/lib:${xorg.libXinerama}/lib:${xorg.libxcb}/lib:${xorg.libXft}/lib:${fontconfig.lib}/lib:${libselinux}/lib:${libxml2.out}/lib:${sqlite.out}/lib:${expat}/lib:$out/etc/carta/lib:${bzip2.out}/lib:${libkrb5}/lib:${gdbm}/lib:${e2fsprogs.out}/lib '{}' 2>/dev/null" \;
     find $out -type f -exec $SHELL -c "patchelf --set-interpreter $(echo ${glibc}/lib/ld-linux*.so.2) '{}' 2>/dev/null" \;
     echo "Fixing path into scripts..."
     for file in `grep -l -r "$sourceRoot" $out`
