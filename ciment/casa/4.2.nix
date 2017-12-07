@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc45, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs, coreutils, nettools, gawk }:
+{ stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc45, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs, coreutils, nettools, gawk, bash }:
 
 stdenv.mkDerivation rec {
   version = "4.2";
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
       sha256 = "0hax0f8niplwd35d1bbq2050hg1ggwv8sclxckkb161fnhd7raig"; 
     };                                                                 
 
-  nativeBuildInputs = [ glibc perl python xorg.libSM xorg.libICE xorg.libX11 xorg.libXext xorg.libXi xorg.libXrender xorg.libXrandr xorg.libXfixes xorg.libXcursor xorg.libXinerama xorg.libXft zlib gcc45 fontconfig glib freetype libselinux libxml2 sqlite expat xorg.libxcb bzip2 libkrb5 gdbm e2fsprogs coreutils nettools gawk];
+  nativeBuildInputs = [ glibc perl python xorg.libSM xorg.libICE xorg.libX11 xorg.libXext xorg.libXi xorg.libXrender xorg.libXrandr xorg.libXfixes xorg.libXcursor xorg.libXinerama xorg.libXft zlib gcc45 fontconfig glib freetype libselinux libxml2 sqlite expat xorg.libxcb bzip2 libkrb5 gdbm e2fsprogs coreutils nettools gawk bash ];
 
   phases = [ "unpackPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase" ];
 
@@ -38,10 +38,16 @@ stdenv.mkDerivation rec {
     do
       sed -e "s,$sourceRoot,$out,g" -i $file
     done 
-    find $out -maxdepth 1 -type f -exec $SHELL -c "sed -e 's,:/usr/bin:/usr/X11R6/bin,${coreutils}/bin:${nettools}/bin:${gawk}/bin,' -i '{}'" \;
+    find $out -maxdepth 1 -type f -exec $SHELL -c "sed -e 's,:/usr/bin:/usr/X11R6/bin,${coreutils}/bin:${nettools}/bin:${gawk}/bin:${bash}/bin,' -i '{}'" \;
     find $out -maxdepth 1 -type f -exec $SHELL -c "sed -e 's,:/lib64:/usr/lib64,,' -i '{}'" \;
     echo "Patching shebangs..."
     patchShebangs $out
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/popen2.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/subprocess.py 
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/pipes.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/numpy/distutils/exec_command.py 
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/conch/scripts/cftp.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/_sysconfigdata.py
   '';
 
   meta = {
