@@ -35,6 +35,7 @@ let
 
     # Openfoam
     openfoam = callPackage ./ciment/openfoam { };
+    openfoam-50 = callPackage ./ciment/openfoam/50.nix { };
 
   };
 in pkgs // self
