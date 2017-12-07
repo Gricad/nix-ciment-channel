@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc45, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs }:
+{ stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc45, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs, coreutils }:
 
 stdenv.mkDerivation rec {
   version = "4.2";
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
       sha256 = "0hax0f8niplwd35d1bbq2050hg1ggwv8sclxckkb161fnhd7raig"; 
     };                                                                 
 
-  nativeBuildInputs = [ glibc perl python xorg.libSM xorg.libICE xorg.libX11 xorg.libXext xorg.libXi xorg.libXrender xorg.libXrandr xorg.libXfixes xorg.libXcursor xorg.libXinerama xorg.libXft zlib gcc45 fontconfig glib freetype libselinux libxml2 sqlite expat xorg.libxcb bzip2 libkrb5 gdbm e2fsprogs ];
+  nativeBuildInputs = [ glibc perl python xorg.libSM xorg.libICE xorg.libX11 xorg.libXext xorg.libXi xorg.libXrender xorg.libXrandr xorg.libXfixes xorg.libXcursor xorg.libXinerama xorg.libXft zlib gcc45 fontconfig glib freetype libselinux libxml2 sqlite expat xorg.libxcb bzip2 libkrb5 gdbm e2fsprogs coreutils ];
 
   phases = [ "unpackPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase" ];
 
@@ -38,6 +38,7 @@ stdenv.mkDerivation rec {
     do
       sed -e "s,$sourceRoot,$out,g" -i $file
     done 
+    find $out -maxdepth 1 -type f -exec $SHELL -c "sed -e 's,:/usr/bin:/usr/X11R6/bin,,' -i '{}'" \;
     echo "Patching shebangs..."
     patchShebangs $out
   '';
