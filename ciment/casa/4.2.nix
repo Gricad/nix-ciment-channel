@@ -48,6 +48,13 @@ stdenv.mkDerivation rec {
     sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/numpy/distutils/exec_command.py 
     sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/conch/scripts/cftp.py
     sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/_sysconfigdata.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/conch/unix.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/scripts/tap2deb.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/scripts/tap2rpm.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/twisted/runner/procmon.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/IPython/kernel/scripts/ipcluster.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/setuptools/command/bdist_egg.py
+    sed -e 's,/bin/sh,${bash}/bin/sh,' -i $out/lib64/python2.7/site-packages/setuptools/command/easy_install.py
   '';
 
   meta = {
