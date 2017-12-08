@@ -1,0 +1,4 @@
+[submodule "nixpkgs"]
+	path = nixpkgs
+	url = https://github.com/Gricad/nixpkgs.git
+	branch = release-17.09
