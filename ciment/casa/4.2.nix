@@ -33,6 +33,10 @@ stdenv.mkDerivation rec {
     find $out -type f ! -name "libgomp.*" ! -name "_hashlib.so" ! -name "libssl.so.6" ! -name "libcrypto.so.6" ! -name "*_debug.so*" -exec $SHELL -c "patchelf --set-rpath ${glibc}/lib:$out/lib64:${gcc45.cc}/lib:${gcc45.cc.lib}/lib:${zlib}/lib:${glib}/lib:${freetype}/lib:${xorg.libSM}/lib:${xorg.libICE}/lib:${xorg.libX11}/lib:${xorg.libXext}/lib:${xorg.libXi}/lib:${xorg.libXrender}/lib:${xorg.libXrandr}/lib:${xorg.libXfixes}/lib:${xorg.libXcursor}/lib:${xorg.libXinerama}/lib:${xorg.libxcb}/lib:${xorg.libXft}/lib:${fontconfig.lib}/lib:${libselinux}/lib:${libxml2.out}/lib:${sqlite.out}/lib:${expat}/lib:$out/etc/carta/lib:${bzip2.out}/lib:${libkrb5}/lib:${gdbm}/lib:${e2fsprogs.out}/lib '{}' 2>/dev/null" \;
     find $out -type f -exec $SHELL -c "patchelf --set-interpreter $(echo ${glibc}/lib/ld-linux*.so.2) '{}' 2>/dev/null" \;
     patchelf --set-rpath $out/lib64 $out/lib64/python2.7/lib-dynload/_hashlib.so
+    echo "Patching casa wrapper..."
+    patchelf --print-rpath $out/lib64/libaatm.so.2  > ldpath.txt
+    sed -e "s,LD_LIBRARY_PATH=,LD_LIBRARY_PATH=`cat ldpath.txt`:," -i $out/casa
+    sed -e "s,LD_LIBRARY_PATH=,LD_LIBRARY_PATH=`cat ldpath.txt`:," -i $out/casapy
     echo "Fixing path into scripts..."
     for file in `grep -l -r "$sourceRoot" $out`
     do
