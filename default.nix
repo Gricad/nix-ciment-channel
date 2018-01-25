@@ -13,7 +13,7 @@ let
     hello = callPackage ./ciment/hello { };
 
     # Casa
-    casa = callPackage ./ciment/casa/4.7.2.nix { };
+    casa-472 = callPackage ./ciment/casa/4.7.2.nix { };
     casa-511 = callPackage ./ciment/casa/5.1.1.nix { };
 
     # Charliecloud
