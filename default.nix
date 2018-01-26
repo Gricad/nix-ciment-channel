@@ -8,12 +8,13 @@ let
   callPackages = callPackagesWith (pkgs // self.ciment);
 
   self.ciment = rec {
-
-    # Hello
+  
+  # Hello
     hello = callPackage ./ciment/hello { };
 
     # Casa
-    casa = callPackage ./ciment/casa/4.7.2.nix { };
+    casa-472 = callPackage ./ciment/casa/4.7.2.nix { };
+    casa-511 = callPackage ./ciment/casa/5.1.1.nix { };
 
     # Charliecloud
     charliecloud = callPackage ./ciment/charliecloud { };
