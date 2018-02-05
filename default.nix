@@ -3,6 +3,7 @@
 let
   inherit (pkgs.lib) callPackageWith;
   inherit (pkgs.lib) callPackagesWith;
+  inherit (pkgs) pythonPackages;
   callPackage = callPackageWith (pkgs // self.ciment);
   callPackage_i686 = callPackageWith (pkgs.pkgsi686Linux // self.ciment);
   callPackages = callPackagesWith (pkgs // self.ciment);
@@ -37,6 +38,9 @@ let
     petscComplex = callPackage ./ciment/petsc { scalarType = "complex"; };
     petscReal = callPackage ./ciment/petsc { scalarType = "real"; };
     petsc = petscComplex;
+
+    # udocker
+    udocker = pythonPackages.callPackage ./ciment/udocker { };
 
     # Arpack-ng
     arpackNG = callPackage ./ciment/arpack-ng { };  
