@@ -4,7 +4,7 @@
 |------------------------|-----------------|-------------------------|----------------------------------------------------------------------------------------------------------|
 | irods                  | Merged   | Bruno Bzeznik           | To iterate: https://github.com/NixOS/nixpkgs/pull/19898                                                  |
 | intel 2016             | Ciment   | Bruno Bzeznik           | https://ciment.ujf-grenoble.fr/wiki/index.php/NIX_packaging_WIP#Compilateurs_et_libs_Intel_2016          |
-| elmer                  | WIP      | Laure Tavard            |                                                                                                          |
+| elmer                  | TODO      | Laure Tavard            |                                                                                                          |
 | cdo                    | Merged   | Laure Tavard            | https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/libraries/cdo                                                                                                         |
 | gmt                    | Ciment   | Laure Tavard            | 	To be tested: nix-env -i -A ciment-channel.ciment.gmt   |
 | gmtsar                 | WIP      | Laure Tavard            |    https://github.com/ltavard/nix-ciment-channel/tree/gmtsar/ciment/gmtsar                                                                                                      |
@@ -42,6 +42,12 @@
 | Mumps                  | TODO     |                         | Dependency for PETSC usage on Froggy (N. Schaeffer)|
 | Casa                   | Ciment   | Bruno Bzeznik           | Binaries packaging https://casa.nrao.edu/casa_obtaining.shtml |
 | Seismic Unix           | WIP      | Laure Tavard            | http://www.cwp.mines.edu/cwpcodes/ | 
+| ParMETIS               | WIP      | Laure Tavard            |  |
+| GMSH                   | WIP      | Laure Tavard            | |
+| Scalapack              | WIP      | Laure Tavard            |  | 
+
+
+
 > Legend:
 >
 > * **TODO**: needed package (dep or user application), but no work done for the moment
