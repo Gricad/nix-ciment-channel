@@ -43,7 +43,6 @@
 | Casa                   | Ciment   | Bruno Bzeznik           | Binaries packaging https://casa.nrao.edu/casa_obtaining.shtml |
 | Seismic Unix           | WIP      | Laure Tavard            | http://www.cwp.mines.edu/cwpcodes/ | 
 | ParMETIS               | WIP      | Laure Tavard            |  |
-| GMSH                   | WIP      | Laure Tavard            | |
 | Scalapack              | WIP      | Laure Tavard            |  | 
 
 
