@@ -53,5 +53,7 @@ let
     # ParMETIS
     parmetis = callPackage ./ciment/parmetis { };
 
+    # Trilinos
+    trilinos =  callPackage ./ciment/trilinos { };
 };
 in pkgs // self
