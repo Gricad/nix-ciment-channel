@@ -50,5 +50,8 @@ let
     dcw-gmt   = callPackage ./ciment/gmt/dcw-gmt.nix { };
     gmt = callPackage ./ciment/gmt { };
 
+    # ParMETIS
+    parmetis = callPackage ./ciment/parmetis { };
+
 };
 in pkgs // self
