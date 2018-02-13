@@ -41,6 +41,7 @@ Set-up
 
     * Create the channel tarball
         ```
+	cd ..
         tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs --dereference --exclude result
 	```
 
