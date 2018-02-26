@@ -44,6 +44,7 @@
 | Seismic Unix           | WIP      | Laure Tavard            | http://www.cwp.mines.edu/cwpcodes/ | 
 | ParMETIS               | WIP      | Laure Tavard            |  |
 | Scalapack              | WIP      | Laure Tavard            |  | 
+| FFTW parallel (MPI)    | TODO     |        |  Also add a version for AVX | 
 
 
 
