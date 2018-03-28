@@ -1,13 +1,13 @@
 { stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff , which }:
 
 stdenv.mkDerivation rec {
-  srcVersion = "dec17a";
-  version = "20171201_a";
+  srcVersion = "mar18b";
+  version = "20180301_b";
   name = "gildas-${version}";
 
   src = fetchurl {
     url = "http://www.iram.fr/~gildas/dist/gildas-src-${srcVersion}.tar.gz";
-    sha256 = "309fd9a383a7b4b85aacb09f21c0150eb3a6af95f6c4bcc95c5cc4cdef3d1ceb";
+    sha256 = "1vdbfrdp1xzxalrdf89mwbxxxdkpf7xnlbhrdszf2w268rp5im6i";
   };
 
   enableParallelBuilding = true;
@@ -24,7 +24,10 @@ stdenv.mkDerivation rec {
     echo "gag_doc:        $out/share/doc/" >> kernel/etc/gag.dico.lcl
   '';
 
-  buildPhase="make install";
+  buildPhase=''
+    make depend
+    make install
+  '';
 
   installPhase=''
     mkdir -p $out/bin
