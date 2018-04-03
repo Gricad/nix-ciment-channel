@@ -1,13 +1,13 @@
 { stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff , which }:
 
 stdenv.mkDerivation rec {
-  srcVersion = "mar18b";
-  version = "20180301_b";
+  srcVersion = "mar18c";
+  version = "20180301_c";
   name = "gildas-${version}";
 
   src = fetchurl {
     url = "http://www.iram.fr/~gildas/dist/gildas-src-${srcVersion}.tar.gz";
-    sha256 = "1vdbfrdp1xzxalrdf89mwbxxxdkpf7xnlbhrdszf2w268rp5im6i";
+    sha256 = "0b7p0sv37dgba2rfdxcwqrgk7v6hjn5mff98vpb7d2bdlk6xypp9";
   };
 
   enableParallelBuilding = true;
