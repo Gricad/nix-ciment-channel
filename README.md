@@ -8,20 +8,10 @@ Set-up
 
 * Clone this repository
 
-    ```git clone https://github.com/Gricad/nix-ciment-channel.git```
-
-* Clone the nixpkgs repository at the release we are currently using
-
     ```
-    git clone https://github.com/Gricad/nixpkgs.git
-    cd nixpkgs
-    git checkout release-17.09
-    cd ..
-    ```
-* Link the nixpkgs directory
-    ```
-    cd nix-ciment-channel
-    ln -s ../nixpkgs
+    git clone https://github.com/Gricad/nix-ciment-channel.git
+    git submodule init
+    git submodule update
     ```
 
 * You can test to build a package
