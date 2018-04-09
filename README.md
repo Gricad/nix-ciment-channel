@@ -24,7 +24,8 @@ Set-up
     ```
 
 * Create the channel (OPTIONAL, if you are an admin)
-    * Push your package into the binary-cache
+    * Push your package into the binary-cache if necessary (not needed if you use nix-serve)
+
         ```
         sudo nix-push --dest /home/nix.cache $(nix-build -A ciment.hello)
         # Or, if you're using Nix 2.x
@@ -33,9 +34,11 @@ Set-up
 
 
     * Create the channel tarball
+
         ```
         cd ..
-        sudo tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs --dereference --exclude result
+        sudo tar cjf /var/www/nix/nixexprs.tar.bz2 --exclude-vcs --exclude='result' nix-ciment-channel/
+        sudo tar cJf /var/www/nix/nixexprs.tar.xz --exclude-vcs --exclude='result' nix-ciment-channel/
 	```
 
 Update
