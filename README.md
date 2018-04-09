@@ -26,13 +26,16 @@ Set-up
 * Create the channel (OPTIONAL, if you are an admin)
     * Push your package into the binary-cache
         ```
-        nix-push --dest /scratch/nix.cache $(nix-build -A ciment.hello)
+        sudo nix-push --dest /home/nix.cache $(nix-build -A ciment.hello)
+        # Or, if you're using Nix 2.x
+        sudo nix copy --no-check-sigs --to /home/nix.cache $(nix-build -A ciment.udocker)
         ```
+
 
     * Create the channel tarball
         ```
         cd ..
-        tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs --dereference --exclude result
+        sudo tar cjf /var/www/nix/nixexprs.tar.bz2 nix-ciment-channel/ --exclude-vcs --dereference --exclude result
 	```
 
 Update
