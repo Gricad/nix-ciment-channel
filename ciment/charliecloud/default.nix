@@ -2,14 +2,14 @@
 
 stdenv.mkDerivation rec {
 
-    version = "0.2.2";
+    version = "0.2.3";
     name = "charliecloud-${version}";
     bats_version = "0.4.0";
 
    srcs = 
       [ (fetchurl {
            url = "https://github.com/hpc/charliecloud/archive/v${version}.tar.gz";
-           sha256 = "0djq3j6q7zj4ignf1b87k64bg4h5aw8l0mxnshagsaskwvmhakpi";
+           sha256 = "0va6gxslcmq11yaplabwpk8x0c0113kpbl0vxy8snn3v2z92kl14";
          })
         (fetchurl {
            url = "https://github.com/sstephenson/bats/archive/v${bats_version}.tar.gz";
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
       patchShebangs test/make-auto     
       cp VERSION VERSION.full
       export PREFIX=$out
-      cp -a ../bats-${bats_version}/* test/bats.src/
+      cp -a ../bats-${bats_version}/* test/bats/
     '';
 
  
