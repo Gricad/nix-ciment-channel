@@ -55,5 +55,10 @@ let
 
    # Mpi-ping example
    mpi-ping = callPackage ./ciment/mpi-ping { };
+   
+    # PYTHON PACKAGES
+    spectral-cube = pythonPackages.callPackage ./ciment/python-modules/spectral-cube { };
+    astropy3 = pythonPackages.callPackage ./ciment/python-modules/astropy { };
+
 };
 in pkgs // self
