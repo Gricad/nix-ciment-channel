@@ -55,5 +55,10 @@ let
 
     # Trilinos
     trilinos =  callPackage ./ciment/trilinos { };
+
+    # PYHTON PACKAGES
+    spectral-cube = pythonPackages.callPackage ./ciment/python-modules/spectral-cube { };
+    astropy3 = pythonPackages.callPackage ./ciment/python-modules/astropy { };
+
 };
 in pkgs // self
