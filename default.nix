@@ -57,7 +57,10 @@ let
     trilinos =  callPackage ./ciment/trilinos { };
 
     # PYHTON PACKAGES
+    pythonPackages = pkgs.python36Packages; # freeze python version to 3.6
+    python = pkgs.python36;
     spectral-cube = pythonPackages.callPackage ./ciment/python-modules/spectral-cube { };
+    radio_beam = pythonPackages.callPackage ./ciment/python-modules/radio_beam { };
     astropy3 = pythonPackages.callPackage ./ciment/python-modules/astropy { };
 
 };
