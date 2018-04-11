@@ -57,6 +57,8 @@ let
    mpi-ping = callPackage ./ciment/mpi-ping { };
    
     # PYTHON PACKAGES
+    pythonPackages = pkgs.python36Packages; # freeze python version to 3.6
+    python = pkgs.python36;
     spectral-cube = pythonPackages.callPackage ./ciment/python-modules/spectral-cube { };
     astropy3 = pythonPackages.callPackage ./ciment/python-modules/astropy { };
 
