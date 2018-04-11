@@ -1,11 +1,17 @@
-{ stdenv, pythonPackages, radio-beam }:
+{ stdenv, pythonPackages, radio-beam, astropy3 }:
 
 pythonPackages.buildPythonPackage rec {
   pname = "spectral-cube";
   version = "0.4.3";
   name = "${pname}-${version}";
 
-  propagateBuildInputs= [ pythonPackages.numpy pythonPackages.astropy radio-beam ];
+  propagateBuildInputs= [ pythonPackages.numpy astropy3 radio-beam ];
+
+  preConfigure = ''
+    export PYTHONPATH=$PYTHONPATH:${radio-beam}/lib/python3.6/site-packages:${astropy3}/lib/python3.6/site-packages:${pythonPackages.numpy}/lib/python3.6/site-packages
+  '';
+
+  doCheck=false;
 
   src = pythonPackages.fetchPypi {
     inherit pname version;

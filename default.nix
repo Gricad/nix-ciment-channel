@@ -59,7 +59,7 @@ let
     # PYHTON PACKAGES
     pythonPackages = pkgs.python36Packages; # freeze python version to 3.6
     python = pkgs.python36;
-    spectral-cube = callPackage ./ciment/python-modules/spectral-cube { inherit radio-beam; };
+    spectral-cube = callPackage ./ciment/python-modules/spectral-cube { inherit radio-beam astropy3; };
     radio-beam = callPackage ./ciment/python-modules/radio_beam { };
     astropy3 = callPackage ./ciment/python-modules/astropy { };
 
