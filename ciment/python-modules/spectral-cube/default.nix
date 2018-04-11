@@ -1,11 +1,11 @@
-{ stdenv, buildPythonPackage, fetchPypi, astropy3 }:
+{ stdenv, buildPythonPackage, fetchPypi, numpy, astropy, radio_beam }:
 
 buildPythonPackage rec {
   pname = "spectral-cube";
   version = "0.4.3";
   name = "${pname}-${version}";
 
-  propagateBuildInputs= [ astropy3 ];
+  propagateBuildInputs= [ numpy astropy radio_beam ];
 
   src = fetchPypi {
     inherit pname version;
