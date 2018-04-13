@@ -31,9 +31,6 @@ let
     openmpi = callPackage ./ciment/openmpi { };
     openmpi2 = callPackage ./ciment/openmpi/2.nix { };
 
-    # Singularity
-    singularity = callPackage ./ciment/singularity { };  
-
     # Petsc
     petscComplex = callPackage ./ciment/petsc { scalarType = "complex"; };
     petscReal = callPackage ./ciment/petsc { scalarType = "real"; };
