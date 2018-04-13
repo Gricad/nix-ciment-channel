@@ -1,5 +1,5 @@
 { stdenv
-, fetchurl
+, fetchFromGitHub
 , autoreconfHook 
 , python27 
 , coreutils
@@ -7,14 +7,14 @@
 
 stdenv.mkDerivation rec {
   name = "singularity-${version}";
-  version = "2.3.1";
+  version = "2.4.5";
 
-  src = fetchurl { 
-    url = "https://github.com/singularityware/singularity/releases/download/${version}/singularity-${version}.tar.gz";
-    sha256 = "1mrcxwlmi93vxggf3776kbajsi2rzg035scl5ha0smbsysgsxk6w";
+  src = fetchFromGitHub { 
+    owner = "singularityware";
+    repo = "singularity";
+    rev = version;
+    sha256 = "0wz2in07197n5c2csww864nn2qmr925lqcjsd1kmlwwnrhq6lzl3";
   };
-
-  patches = [ ./chk_mode.patch ];
 
   buildInputs = [ autoreconfHook python27 ];
 
@@ -24,14 +24,24 @@ stdenv.mkDerivation rec {
     export NIX_LDFLAGS="$NIX_LDFLAGS -rpath $out/lib/singularity"
   '';
 
-  # Don't shrink the RPATH, otherwise singularity does not find the libraries specified above
+  # Manually fix the RPATH (contains references to /tmp/nix-build*)
   dontPatchELF = true;
+  preFixup = ''
+    echo "preFixup..."
+    for i in $out/libexec/singularity/bin/*
+    do 
+      newRpath=$(patchelf --print-rpath $i | sed -r 's|(.*)(/tmp/nix-build-.*/.libs:?)(.*)|\1\3|g')
+      newRpath=$(echo $newRpath | sed -r 's|(.*)(/tmp/nix-build-.*/.libs:?)(.*)|\1\3|g')
+      echo "  Fixing RPATH of $i -> $newRpath"
+      patchelf --set-rpath $out/lib/singularity:$newRpath $i
+    done
+  '';
 
   meta = with stdenv.lib; {
     homepage = http://singularity.lbl.gov/;
     description = "Designed around the notion of extreme mobility of compute and reproducible science, Singularity enables users to have full control of their operating system environment";
     license = "BSD license with 2 modifications";
     platforms = platforms.linux;
-    maintainers = [ maintainers.jbedo ];
+    maintainers = with maintainers ; [ jbedo bzizou ];
   };
 }
