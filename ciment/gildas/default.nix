@@ -1,4 +1,8 @@
-{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff , which }:
+{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , lesstif , cfitsio , getopt , perl , groff , which }:
+
+let
+  python27Env = python27.withPackages(ps: with ps; [ numpy scipy ]);
+in
 
 stdenv.mkDerivation rec {
   srcVersion = "mar18c";
@@ -12,14 +16,15 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran python27 python27Packages.numpy which ];
+  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran which ];
 
-  buildInputs = [ gtk2 lesstif cfitsio ];
+  buildInputs = [ gtk2 lesstif cfitsio python27Env ];
 
   patches = [ ./wrapper.patch ./return-error-code.patch ];
 
   configurePhase=''
     substituteInPlace admin/wrapper.sh --replace '%%OUT%%' $out
+    substituteInPlace admin/wrapper.sh --replace '%%PYTHONHOME%%' ${python27Env}
     source admin/gildas-env.sh -b gcc -c gfortran -o openmp
     echo "gag_doc:        $out/share/doc/" >> kernel/etc/gag.dico.lcl
   '';
