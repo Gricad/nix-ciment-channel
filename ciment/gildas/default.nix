@@ -7,13 +7,13 @@ let
 in
 
 stdenv.mkDerivation rec {
-  srcVersion = "mar18c";
-  version = "20180301_c";
+  srcVersion = "may18a";
+  version = "20180501_a";
   name = "gildas-${version}";
 
   src = fetchurl {
     url = "http://www.iram.fr/~gildas/dist/gildas-src-${srcVersion}.tar.gz";
-    sha256 = "0b7p0sv37dgba2rfdxcwqrgk7v6hjn5mff98vpb7d2bdlk6xypp9";
+    sha256 = "1xi0h6n5naz6ms8775hlv0jn129vvb9vzfllkldjw3nkzf87sx1w";
   };
 
   enableParallelBuilding = true;

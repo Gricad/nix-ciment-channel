@@ -1,7 +1,7 @@
-diff -ruN gildas-src-mar18c.orig/admin/gildas-env.sh gildas-src-mar18c/admin/gildas-env.sh
---- gildas-src-mar18c.orig/admin/gildas-env.sh	2018-02-19 15:10:04.000000000 +0100
-+++ gildas-src-mar18c/admin/gildas-env.sh	2018-04-28 23:32:44.404396983 +0200
-@@ -528,7 +528,7 @@
+diff -ruN gildas-src-may18a.orig/admin/gildas-env.sh gildas-src-may18a/admin/gildas-env.sh
+--- gildas-src-may18a.orig/admin/gildas-env.sh	2018-04-24 18:20:08.000000000 +0200
++++ gildas-src-may18a/admin/gildas-env.sh	2018-05-04 16:39:18.982253471 +0200
+@@ -430,7 +430,7 @@
          # dot (e.g. so.3 is not counted), because e.g. /usr/lib64/liblapack.so.3
          # is useless and can not be found by the linker on command lines like
          # "-L/usr/lib -llapack"
@@ -10,7 +10,7 @@ diff -ruN gildas-src-mar18c.orig/admin/gildas-env.sh gildas-src-mar18c/admin/gil
          if [ ${occurences} -ge 1 ]; then
              \return 0
          else
-@@ -556,11 +556,9 @@
+@@ -458,11 +458,9 @@
      SDM_MISSING=
      #
      for DIR in $GAGENV_SEARCH_PATH; do
@@ -23,7 +23,7 @@ diff -ruN gildas-src-mar18c.orig/admin/gildas-env.sh gildas-src-mar18c/admin/gil
              BLAS_PRESENT=yes
              BLAS_LIB_DIR=$DIR
          fi
-@@ -591,7 +589,7 @@
+@@ -493,7 +491,7 @@
      X11_LIB=no
      #
      for DIR in $INC_PATH; do
@@ -32,10 +32,10 @@ diff -ruN gildas-src-mar18c.orig/admin/gildas-env.sh gildas-src-mar18c/admin/gil
              X11_INC=yes
              X11_INC_DIR=$DIR
          fi
-diff -ruN gildas-src-mar18c.orig/admin/Makefile.build gildas-src-mar18c/admin/Makefile.build
---- gildas-src-mar18c.orig/admin/Makefile.build	2018-02-12 16:50:13.000000000 +0100
-+++ gildas-src-mar18c/admin/Makefile.build	2018-04-28 23:35:51.252168121 +0200
-@@ -381,9 +381,7 @@
+diff -ruN gildas-src-may18a.orig/admin/Makefile.build gildas-src-may18a/admin/Makefile.build
+--- gildas-src-may18a.orig/admin/Makefile.build	2018-03-19 17:48:07.000000000 +0100
++++ gildas-src-may18a/admin/Makefile.build	2018-05-04 16:39:18.982253471 +0200
+@@ -398,9 +398,7 @@
  # only the shared libraries are installed (i.e. the corresponding archive
  # libraries are missing).
  
@@ -46,10 +46,10 @@ diff -ruN gildas-src-mar18c.orig/admin/Makefile.build gildas-src-mar18c/admin/Ma
  
  -lslatec:
  
-diff -ruN gildas-src-mar18c.orig/admin/Makefile.def gildas-src-mar18c/admin/Makefile.def
---- gildas-src-mar18c.orig/admin/Makefile.def	2018-01-15 18:40:58.000000000 +0100
-+++ gildas-src-mar18c/admin/Makefile.def	2018-04-28 23:48:45.171820940 +0200
-@@ -205,7 +205,7 @@
+diff -ruN gildas-src-may18a.orig/admin/Makefile.def gildas-src-may18a/admin/Makefile.def
+--- gildas-src-may18a.orig/admin/Makefile.def	2018-03-21 17:53:34.000000000 +0100
++++ gildas-src-may18a/admin/Makefile.def	2018-05-04 16:41:59.233518207 +0200
+@@ -206,7 +206,7 @@
  ###########################################################################
  # Other defaults
  
@@ -58,18 +58,18 @@ diff -ruN gildas-src-mar18c.orig/admin/Makefile.def gildas-src-mar18c/admin/Make
  GLOBAL_DIRTY = $(builddir) *~ TAGS ChangeLog* Makefile.bak
  
  ###########################################################################
-@@ -514,7 +514,7 @@
+@@ -515,7 +515,7 @@
  ###########################################################################
  # Kernel libraries
  
 -LEGACY_LIBS = -lslatec -llapack -lblas
 +LEGACY_LIBS = -lslatec -lopenblas
- _GAG_LIBS = -lggui -lgcore -lgio -lgwcs -lgmath -lgsys -lginc
+ _GAG_LIBS = -lggui -lgcore -lgio -lgfits -lgwcs -lgmath -lgsys -lginc
  ifndef GAG_WIN32
    GAG_LIBS = $(_GAG_LIBS)
-diff -ruN gildas-src-mar18c.orig/legacy/slatec/Makefile gildas-src-mar18c/legacy/slatec/Makefile
---- gildas-src-mar18c.orig/legacy/slatec/Makefile	2014-12-09 11:31:56.000000000 +0100
-+++ gildas-src-mar18c/legacy/slatec/Makefile	2018-04-28 23:36:38.645126813 +0200
+diff -ruN gildas-src-may18a.orig/legacy/slatec/Makefile gildas-src-may18a/legacy/slatec/Makefile
+--- gildas-src-may18a.orig/legacy/slatec/Makefile	2014-12-09 11:31:56.000000000 +0100
++++ gildas-src-may18a/legacy/slatec/Makefile	2018-05-04 16:39:18.982253471 +0200
 @@ -24,7 +24,7 @@
  U-all.o V-all.o W-all.o X-all.o Y-all.o Z-all.o d1mach.o i1mach.o pimach.o  \
  r1mach.o dummy.o P-all.o P-value.o Dp-1vlu.o 
@@ -79,9 +79,9 @@ diff -ruN gildas-src-mar18c.orig/legacy/slatec/Makefile gildas-src-mar18c/legacy
  
  ifeq ($(GAG_COMPILER_FKIND),ifc)
    OPTION_FFLAGS = 
-diff -ruN gildas-src-mar18c.orig/packages/clic/lib/Makefile gildas-src-mar18c/packages/clic/lib/Makefile
---- gildas-src-mar18c.orig/packages/clic/lib/Makefile	2018-01-16 11:53:15.000000000 +0100
-+++ gildas-src-mar18c/packages/clic/lib/Makefile	2018-04-28 23:38:02.102814991 +0200
+diff -ruN gildas-src-may18a.orig/packages/clic/lib/Makefile gildas-src-may18a/packages/clic/lib/Makefile
+--- gildas-src-may18a.orig/packages/clic/lib/Makefile	2018-01-16 11:53:15.000000000 +0100
++++ gildas-src-may18a/packages/clic/lib/Makefile	2018-05-04 16:39:18.982253471 +0200
 @@ -56,9 +56,9 @@
  sg_line_table.o table_passband.o clic_index.o clic_blank.o
  
