@@ -1,26 +1,33 @@
-{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , python27Packages , lesstif , cfitsio , getopt , perl , groff , which }:
+{ stdenv, fetchurl, gtk2 , pkgconfig , python27 , gfortran , lesstif
+, cfitsio , getopt , perl , groff , which , openblas
+}:
+
+let
+  python27Env = python27.withPackages(ps: with ps; [ numpy scipy ]);
+in
 
 stdenv.mkDerivation rec {
-  srcVersion = "mar18c";
-  version = "20180301_c";
+  srcVersion = "may18a";
+  version = "20180501_a";
   name = "gildas-${version}";
 
   src = fetchurl {
     url = "http://www.iram.fr/~gildas/dist/gildas-src-${srcVersion}.tar.gz";
-    sha256 = "0b7p0sv37dgba2rfdxcwqrgk7v6hjn5mff98vpb7d2bdlk6xypp9";
+    sha256 = "1xi0h6n5naz6ms8775hlv0jn129vvb9vzfllkldjw3nkzf87sx1w";
   };
 
   enableParallelBuilding = true;
 
-  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran python27 python27Packages.numpy which ];
+  nativeBuildInputs = [ pkgconfig groff perl getopt gfortran which ];
 
-  buildInputs = [ gtk2 lesstif cfitsio ];
+  buildInputs = [ gtk2 lesstif cfitsio python27Env openblas ];
 
-  patches = [ ./wrapper.patch ./return-error-code.patch ];
+  patches = [ ./wrapper.patch ./return-error-code.patch ./openblas.patch ];
 
   configurePhase=''
     substituteInPlace admin/wrapper.sh --replace '%%OUT%%' $out
-    source admin/gildas-env.sh -b gcc -c gfortran -o openmp
+    substituteInPlace admin/wrapper.sh --replace '%%PYTHONHOME%%' ${python27Env}
+    source admin/gildas-env.sh -b gcc -c gfortran -o openmp -s ${openblas}/lib
     echo "gag_doc:        $out/share/doc/" >> kernel/etc/gag.dico.lcl
   '';
 
