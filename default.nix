@@ -55,5 +55,12 @@ let
 
    # Mpi-ping example
    mpi-ping = callPackage ./ciment/mpi-ping { };
+   
+    # PYTHON PACKAGES
+    pythonPackages = pkgs.python36Packages; # freeze python version to 3.6
+    python = pkgs.python36;
+    spectral-cube = callPackage ./ciment/python-modules/spectral-cube { inherit radio-beam; };
+    radio-beam = callPackage ./ciment/python-modules/radio_beam { };
+
 };
 in pkgs // self
