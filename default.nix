@@ -53,7 +53,10 @@ let
     # Trilinos
     trilinos =  callPackage ./ciment/trilinos { };
 
-   # Mpi-ping example
-   mpi-ping = callPackage ./ciment/mpi-ping { };
+    # Mpi-ping example
+    mpi-ping = callPackage ./ciment/mpi-ping { };
+
+    # Singularity
+    singularity = callPackage ./ciment/singularity { };
 };
 in pkgs // self
