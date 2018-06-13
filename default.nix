@@ -58,5 +58,9 @@ let
 
     # Singularity
     singularity = callPackage ./ciment/singularity { };
+
+    # Openfoam
+    openfoam = callPackage ./ciment/openfoam { };
+    
 };
 in pkgs // self
