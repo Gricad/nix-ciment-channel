@@ -1,4 +1,4 @@
-{stdenv, fetchurl, gfortran, perl, libibverbs, python27
+{stdenv, fetchurl, gfortran, perl, libibverbs, python27, psm2
 
 # Enable the Sun Grid Engine bindings
 , enableSGE ? false
@@ -11,23 +11,27 @@ with stdenv.lib;
 
 let
   majorVersion = "2.1";
+  minorVersion = "3";
 
 in stdenv.mkDerivation rec {
-  name = "openmpi-${majorVersion}.1";
+  name = "openmpi-${majorVersion}.${minorVersion}";
 
   src = fetchurl {
     url = "http://www.open-mpi.org/software/ompi/v${majorVersion}/downloads/${name}.tar.bz2";
-    sha256 = "05jdbsdpada4iryshjlmx5bvj0z0dkpa0g3z1n649yiszzaasyxx";
+    sha256 = "1s3r9lsnk12zax4fngy6yac19ipc8dh4jx24a8ah8rzdd4m3wnr8";
   };
 
   buildInputs = [ gfortran ]
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libibverbs;
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libibverbs
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) psm2
+    ;
 
   nativeBuildInputs = [ perl python27 ];
 
   configureFlags = []
     ++ optional enableSGE "--with-sge"
     ++ optional enablePrefix "--enable-mpirun-prefix-by-default"
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) "--with-psm2=${psm2}/usr"
     ;
 
   enableParallelBuilding = true;
