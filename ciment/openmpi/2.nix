@@ -1,4 +1,4 @@
-{stdenv, fetchurl, gfortran, perl, libibverbs, python27, psm2
+{stdenv, fetchurl, gfortran, perl, libibverbs, python27, psm2, libfabric
 
 # Enable the Sun Grid Engine bindings
 , enableSGE ? false
@@ -24,6 +24,7 @@ in stdenv.mkDerivation rec {
   buildInputs = [ gfortran ]
     ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libibverbs
     ++ optional (stdenv.isLinux || stdenv.isFreeBSD) psm2
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libfabric
     ;
 
   nativeBuildInputs = [ perl python27 ];
@@ -31,7 +32,7 @@ in stdenv.mkDerivation rec {
   configureFlags = []
     ++ optional enableSGE "--with-sge"
     ++ optional enablePrefix "--enable-mpirun-prefix-by-default"
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) "--with-psm2=${psm2}/usr"
+    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) "--with-psm2=${psm2}/usr --with-libfabric=${libfabric}"
     ;
 
   enableParallelBuilding = true;

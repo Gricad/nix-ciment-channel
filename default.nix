@@ -32,6 +32,7 @@ let
     openmpi2 = callPackage ./ciment/openmpi/2.nix { };
     openmpi3 = callPackage ./ciment/openmpi/3.nix { };
     psm2 = callPackage ./ciment/psm2 { };
+    libfabric = callPackage ./ciment/libfabric { };
 
     # Petsc
     petscComplex = callPackage ./ciment/petsc { scalarType = "complex"; };
