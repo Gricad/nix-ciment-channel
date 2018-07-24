@@ -30,6 +30,8 @@ let
     # Openmpi
     openmpi = callPackage ./ciment/openmpi { };
     openmpi2 = callPackage ./ciment/openmpi/2.nix { };
+    openmpi2-opa = callPackage ./ciment/openmpi/2.nix { enableFabric = true; };
+    openmpi2-ib = callPackage ./ciment/openmpi/2.nix { enableIbverbs = true; };
     openmpi3 = callPackage ./ciment/openmpi/3.nix { };
     psm2 = callPackage ./ciment/psm2 { };
     libfabric = callPackage ./ciment/libfabric { };

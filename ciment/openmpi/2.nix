@@ -5,6 +5,13 @@
 
 # Pass PATH/LD_LIBRARY_PATH to point to current mpirun by default
 , enablePrefix ? false
+
+# For Infiniband low latency networks support
+, enableIbverbs ? false
+
+# For Omnipath low latency networks support
+# WARNING: may not work if enableIbverbs is true!
+, enableFabric ? false
 }:
 
 with stdenv.lib;
@@ -22,9 +29,9 @@ in stdenv.mkDerivation rec {
   };
 
   buildInputs = [ gfortran ]
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libibverbs
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) psm2
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) libfabric
+    ++ optional enableIbverbs libibverbs
+    ++ optional enableFabric psm2
+    ++ optional enableFabric libfabric
     ;
 
   nativeBuildInputs = [ perl python27 ];
@@ -32,7 +39,7 @@ in stdenv.mkDerivation rec {
   configureFlags = []
     ++ optional enableSGE "--with-sge"
     ++ optional enablePrefix "--enable-mpirun-prefix-by-default"
-    ++ optional (stdenv.isLinux || stdenv.isFreeBSD) "--with-psm2=${psm2}/usr --with-libfabric=${libfabric}"
+    ++ optional enableFabric "--with-psm2=${psm2}/usr --with-libfabric=${libfabric}"
     ;
 
   enableParallelBuilding = true;
