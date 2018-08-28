@@ -11,10 +11,21 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
      cp -a $sourceRoot $out
-     # Fixing man path
-     rm -f $out/man
-     mkdir -p $out/share
-     ln -s ../compilers_and_libraries/linux/man/common $out/share/man
+     # Fixing links
+     for i in $(find $out -type l)
+     do
+       dest=$(readlink $i)
+       if [[ $dest = $sourceRoot* ]]
+       then
+         rm $i
+         newlink=$(echo "$dest" |sed s",$sourceRoot,$out,")
+         ln -s $newlink $i
+      fi
+    done
+    # Fixing man path
+    rm -f $out/man
+    mkdir -p $out/share
+    ln -s ../compilers_and_libraries/linux/man/common $out/share/man
   '';
 
   postFixup = ''
