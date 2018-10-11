@@ -14,8 +14,11 @@ let
     hello = callPackage ./ciment/hello { };
 
     # Casa
+    # Versions 4.7.2 and 5.1.1 are kept for backward
+    # compatibility issues.
     casa-472 = callPackage ./ciment/casa/4.7.2.nix { };
     casa-511 = callPackage ./ciment/casa/5.1.1.nix { };
+    casa = callPackage ./ciment/casa/default.nix { };
 
     # Charliecloud
     charliecloud = callPackage ./ciment/charliecloud { };
