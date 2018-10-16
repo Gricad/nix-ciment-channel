@@ -61,6 +61,9 @@ let
     # Trilinos
     trilinos =  callPackage ./ciment/trilinos { };
 
+    # Szip
+    szip =  callPackage ./ciment/szip { };
+
     # Mpi-ping example
     mpi-ping = callPackage ./ciment/mpi-ping { };
 
