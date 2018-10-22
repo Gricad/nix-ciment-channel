@@ -26,6 +26,7 @@ let
     # Intel compiler
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
+    intel-compilers-2018 = callPackage ./ciment/intel/2018.nix { };
 
     # Gildas
     gildas = callPackage ./ciment/gildas { };
