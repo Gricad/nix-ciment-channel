@@ -2,14 +2,14 @@
 
 stdenv.mkDerivation rec {
 
-    version = "0.2.3";
+    version = "0.9.4";
     name = "charliecloud-${version}";
     bats_version = "0.4.0";
 
    srcs = 
       [ (fetchurl {
            url = "https://github.com/hpc/charliecloud/archive/v${version}.tar.gz";
-           sha256 = "0va6gxslcmq11yaplabwpk8x0c0113kpbl0vxy8snn3v2z92kl14";
+           sha256 = "15dxzvb7l00pwsh4yma8k85p2hahwnd31bpzyiij1icl1n9vpm47";
          })
         (fetchurl {
            url = "https://github.com/sstephenson/bats/archive/v${bats_version}.tar.gz";
