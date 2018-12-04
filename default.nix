@@ -73,5 +73,9 @@ let
 
     # PLPlot
     plplot = callPackage ./ciment/plplot { };
+
+    # Hoppet
+    hoppet = callPackage ./ciment/hoppet { };
+
 };
 in pkgs // self
