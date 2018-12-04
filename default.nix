@@ -70,5 +70,8 @@ let
 
     # Singularity
     singularity = callPackage ./ciment/singularity { };
+
+    # PLPlot
+    plplot = callPackage ./ciment/plplot { };
 };
 in pkgs // self
