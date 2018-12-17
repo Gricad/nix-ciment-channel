@@ -82,5 +82,8 @@ let
 
     # LHApdf 5.9
     lhapdf59 = callPackage ./ciment/lhapdf59 { };
+
+    # Bagel
+    bagel = callPackage ./ciment/bagel { };
 };
 in pkgs // self
