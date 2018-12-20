@@ -4,6 +4,8 @@ let
   inherit (pkgs.lib) callPackageWith;
   inherit (pkgs.lib) callPackagesWith;
   inherit (pkgs) pythonPackages;
+  inherit (pkgs) perlPackages;
+  inherit (pkgs) buildPerlPackage;
   callPackage = callPackageWith (pkgs // self.ciment);
   callPackage_i686 = callPackageWith (pkgs.pkgsi686Linux // self.ciment);
   callPackages = callPackagesWith (pkgs // self.ciment);
@@ -85,5 +87,9 @@ let
 
     # Bagel
     bagel = callPackage ./ciment/bagel { };
+
+    # stacks
+    stacks = callPackages ./ciment/stacks { };
+
 };
 in pkgs // self
