@@ -91,5 +91,8 @@ let
     # stacks
     stacks = callPackages ./ciment/stacks { };
 
+    # messer-slim                                       
+    messer-slim = callPackages ./ciment/messer-slim { };
+
 };
 in pkgs // self
