@@ -94,5 +94,8 @@ let
     # messer-slim                                       
     messer-slim = callPackages ./ciment/messer-slim { };
 
+    # Fate
+    fate = callPackages ./ciment/fate { };
+
 };
 in pkgs // self
