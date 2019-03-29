@@ -97,5 +97,10 @@ let
     # Fate
     fate = callPackages ./ciment/fate { };
 
+    # Migrate
+    migrate = callPackages ./ciment/migrate { };
+
+
+
 };
 in pkgs // self
