@@ -99,8 +99,15 @@ let
 
     # Migrate
     migrate = callPackages ./ciment/migrate { };
+    
+    # GDL
+    gdl = callPackages ./ciment/gdl { };      
 
+    # CSA
+    csa = callPackages ./ciment/csa { };
 
-
+    # FFTW
+    fftw = callPackages ./ciment/fftw { };
+    
 };
 in pkgs // self

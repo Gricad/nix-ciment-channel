@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs }:
+{stdenv, fetchurl, glibc, perl, python, xorg, zlib, gcc, fontconfig, freetype, glib, libselinux, libxml2, sqlite, expat, bzip2, libkrb5, gdbm, e2fsprogs }:
 
 stdenv.mkDerivation rec {
   version = "5.4.0";
