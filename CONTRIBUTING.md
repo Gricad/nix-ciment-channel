@@ -13,7 +13,7 @@ Into a directory of your choice:
 * Clone this repository
 
 	```
-	git clone https://github.com/Gricad/nix-ciment-channel.git
+	git clone https://github.com/<your_login>/nix-ciment-channel.git
 	git submodule init
 	git submodule update
 	```
