@@ -21,8 +21,6 @@ stdenv.mkDerivation rec {
 	meta = {
 		description = "A free and open-source IDL/PV-WAVE compiler";
 		homepage = "https://github.com/gnudatalanguage/gdl";
-		licence = stdenv.lib.licences.lgpl2;
-		plateforms = stdenv.lib.plateforms.all;
 	};
 
 }
