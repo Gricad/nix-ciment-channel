@@ -1,4 +1,4 @@
-{stdenv,fetchurl, lib, precision ? "long-double", perl }:
+{stdenv,fetchurl, lib, precision ? "double", perl, cmake }:
 
 with lib;
 
@@ -19,23 +19,7 @@ stdenv.mkDerivation rec {
     ];
     sha256 = "00z3k8fq561wq2khssqg0kallk0504dzlx989x3vvicjdqpjc4v1";
   };
-
-  outputs = [ "out" "dev" "man" ]
-    ++ optional withDoc "info"; # it's dev-doc only
-  outputBin = "dev"; # fftw-wisdom
-
-  configureFlags =
-    [ "--enable-shared" "--disable-static"
-      "--enable-threads"
-    ]
-    ++ optional (precision != "double") "--enable-${precision}"
-    # all x86_64 have sse2
-    # however, not all float sizes fit
-    ++ optional (stdenv.isx86_64 && (precision == "single" || precision == "double") )  "--enable-sse2"
-    ++ optional (stdenv.cc.isGNU && !stdenv.hostPlatform.isMusl) "--enable-openmp"
-    # doc generation causes Fortran wrapper generation which hard-codes gcc
-    ++ optional (!withDoc) "--disable-doc";
-
+	nativeBuildInputs =[ cmake ];
   enableParallelBuilding = true;
 
   checkInputs = [ perl ];
