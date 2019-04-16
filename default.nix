@@ -107,7 +107,7 @@ let
     csa = callPackages ./ciment/csa { };
 
     # FFTW
-    fftw = callPackages ./ciment/fftw { };
+    fftw3 = callPackages ./ciment/fftw { };
     
 };
 in pkgs // self
