@@ -11,7 +11,7 @@ let
   callPackages = callPackagesWith (pkgs // self.ciment);
 
   self.ciment = rec {
-  
+
   # Hello
     hello = callPackage ./ciment/hello { };
 
@@ -51,7 +51,7 @@ let
     udocker = pythonPackages.callPackage ./ciment/udocker { };
 
     # Arpack-ng
-    arpackNG = callPackage ./ciment/arpack-ng { };  
+    arpackNG = callPackage ./ciment/arpack-ng { };
 
     # GMT
     gshhg-gmt = callPackage ./ciment/gmt/gshhg-gmt.nix { };
@@ -91,7 +91,7 @@ let
     # stacks
     stacks = callPackages ./ciment/stacks { };
 
-    # messer-slim                                       
+    # messer-slim
     messer-slim = callPackages ./ciment/messer-slim { };
 
     # Fate
@@ -99,15 +99,17 @@ let
 
     # Migrate
     migrate = callPackages ./ciment/migrate { };
-    
+
     # GDL
-    gdl = callPackages ./ciment/gdl { };      
+    gdl = callPackages ./ciment/gdl { };
 
     # CSA
     csa = callPackages ./ciment/csa { };
 
     # FFTW
     fftw3 = callPackages ./ciment/fftw { };
-    
+
+    # Zonation
+    zonation-core = callPackages ./ciment/zonation-core { };
 };
 in pkgs // self
