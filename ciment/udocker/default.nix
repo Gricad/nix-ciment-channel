@@ -15,6 +15,8 @@ buildPythonApplication rec {
 
   buildInputs = [ proot patchelf fakechroot runc simplejson pycurl coreutils nose mock ];
 
+  checkInputs = [ nose ];
+
   postPatch = ''
       substituteInPlace udocker.py --replace /usr/sbin:/sbin:/usr/bin:/bin $PATH
       substituteInPlace udocker.py --replace /bin/chmod ${coreutils}/bin/chmod
