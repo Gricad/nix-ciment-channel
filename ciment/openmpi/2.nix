@@ -1,4 +1,4 @@
-{stdenv, fetchurl, gfortran, perl, libibverbs, python27, psm2, libfabric
+{stdenv, fetchurl, gfortran, perl, rdma-core, python27, psm2, libfabric
 
 # Enable the Sun Grid Engine bindings
 , enableSGE ? false
@@ -29,7 +29,7 @@ in stdenv.mkDerivation rec {
   };
 
   buildInputs = [ gfortran ]
-    ++ optional enableIbverbs libibverbs
+    ++ optional enableIbverbs rdma-core
     ++ optional enableFabric psm2
     ++ optional enableFabric libfabric
     ;
