@@ -111,5 +111,8 @@ let
 
     # Zonation
     zonation-core = callPackages ./ciment/zonation-core { };
+
+    # Scotch 6.0.5a with mumps libraries
+    scotch-mumps = callPackages ./ciment/scotch-mumps { };
 };
 in pkgs // self
