@@ -30,9 +30,6 @@ let
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
     intel-compilers-2018 = callPackage ./ciment/intel/2018.nix { };
 
-    # Gildas
-    gildas = callPackage ./ciment/gildas { };
-
     # Openmpi
     openmpi = callPackage ./ciment/openmpi { };
     openmpi2 = callPackage ./ciment/openmpi/2.nix { };

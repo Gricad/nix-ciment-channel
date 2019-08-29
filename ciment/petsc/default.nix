@@ -9,19 +9,19 @@
 , suitesparse
 , hwloc
 , metis
-, superlu
 , hdf5
 , netcdf
 , scalarType ? "complex" # May be "real" or "complex"
+, zlib
 }:
 
 stdenv.mkDerivation rec {
   name = "petsc-${version}";
-  version = "3.8.3";
+  version = "3.11.1";
 
   src = fetchurl {
     url = "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-${version}.tar.gz";
-    sha256 = "1b1yr93g6df8kx10ri2y26bp3l3w3jv10r80krnarbvyjgnw7y81";
+    sha256 = "08zvy44w4ilygwshwnrvmgryrwd5i6gihf7kpgml05ffyycpyqnb";
   };
 
   patches = [ ./petscmpiexec.patch ];
@@ -36,9 +36,9 @@ stdenv.mkDerivation rec {
     suitesparse
     hwloc
     metis
-    superlu
     hdf5
     netcdf
+    zlib
   ];
 
   enableParallelBuilding = true;
@@ -66,13 +66,13 @@ stdenv.mkDerivation rec {
       "--with-hwloc-dir=${hwloc.lib}"
       "--with-netcdf-dir=${netcdf}"
       "--with-hdf5-dir=${hdf5}"
-      "--with-superlu-dir=${superlu}"
       "--with-metis-dir=${metis}"
+      "--with-zlib-dir=${zlib}"
+      "--with-64-bit-indices=1"
   ];
 
   postInstall = ''
-    rm $out/bin/popup
-    rm $out/bin/uncrustify.cfg
+    rm -f $out/bin/uncrustify.cfg
     rm -rf $out/bin/win32fe
   '';
 
