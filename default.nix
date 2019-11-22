@@ -29,6 +29,7 @@ let
     intel-compilers-2016 = callPackage ./ciment/intel/2016.nix { };
     intel-compilers-2017 = callPackage ./ciment/intel/2017.nix { };
     intel-compilers-2018 = callPackage ./ciment/intel/2018.nix { };
+    intel-compilers-2019 = callPackage ./ciment/intel/2019.nix { };
 
     # Openmpi
     openmpi = callPackage ./ciment/openmpi { };
