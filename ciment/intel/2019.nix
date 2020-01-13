@@ -3,7 +3,7 @@
 stdenv.mkDerivation rec {
   version = "2019u3";
   name = "intel-compilers-${version}";
-  sourceRoot = "/scratch/intel/2019";
+  sourceRoot = "/home/scratch/intel/2019";
 
   buildInputs = [ glibc gcc ];
 
@@ -15,10 +15,10 @@ stdenv.mkDerivation rec {
      for i in $(find $out -type l)
      do
        dest=$(readlink $i)
-       if [[ $dest = $sourceRoot* ]]
+       if [[ $dest = *$sourceRoot* ]]
        then
          rm $i
-         newlink=$(echo "$dest" |sed s",$sourceRoot,$out,")
+         newlink=$(echo "$dest" |sed s",.*$sourceRoot,$out,")
          ln -s $newlink $i
       fi
     done
